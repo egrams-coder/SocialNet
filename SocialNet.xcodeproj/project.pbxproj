@@ -13,6 +13,8 @@
 		64AF6829252B4C680095276D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64AF6828252B4C680095276D /* Assets.xcassets */; };
 		64AF682C252B4C680095276D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64AF682A252B4C680095276D /* LaunchScreen.storyboard */; };
 		64AF6837252C5FC80095276D /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF6836252C5FC80095276D /* LoginFormController.swift */; };
+		64AF683F252CD8370095276D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF683E252CD8370095276D /* TabViewController.swift */; };
+		64AF6843252CDC830095276D /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF6842252CDC830095276D /* FriendsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		64AF682B252B4C680095276D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64AF682D252B4C680095276D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64AF6836252C5FC80095276D /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		64AF683E252CD8370095276D /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		64AF6842252CDC830095276D /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				64AF682A252B4C680095276D /* LaunchScreen.storyboard */,
 				64AF682D252B4C680095276D /* Info.plist */,
 				64AF6836252C5FC80095276D /* LoginFormController.swift */,
+				64AF683E252CD8370095276D /* TabViewController.swift */,
+				64AF6842252CDC830095276D /* FriendsTableViewController.swift */,
 			);
 			path = SocialNet;
 			sourceTree = "<group>";
@@ -139,7 +145,9 @@
 			files = (
 				64AF6837252C5FC80095276D /* LoginFormController.swift in Sources */,
 				64AF6820252B4C670095276D /* AppDelegate.swift in Sources */,
+				64AF683F252CD8370095276D /* TabViewController.swift in Sources */,
 				64AF6822252B4C670095276D /* SceneDelegate.swift in Sources */,
+				64AF6843252CDC830095276D /* FriendsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28B854GRM4;
 				INFOPLIST_FILE = SocialNet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,7 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28B854GRM4;
 				INFOPLIST_FILE = SocialNet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
