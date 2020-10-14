@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6466D08A2534B5DC0046FC55 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466D0892534B5DC0046FC55 /* FriendTableViewCell.swift */; };
+		6466D08D253753F20046FC55 /* CommunityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466D08C253753F20046FC55 /* CommunityTableViewController.swift */; };
+		6466D0902537544D0046FC55 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466D08F2537544D0046FC55 /* CommunityTableViewCell.swift */; };
 		64AF6820252B4C670095276D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF681F252B4C670095276D /* AppDelegate.swift */; };
 		64AF6822252B4C670095276D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF6821252B4C670095276D /* SceneDelegate.swift */; };
 		64AF6827252B4C670095276D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64AF6825252B4C670095276D /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6466D0892534B5DC0046FC55 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		6466D08C253753F20046FC55 /* CommunityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewController.swift; sourceTree = "<group>"; };
+		6466D08F2537544D0046FC55 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		64AF681C252B4C670095276D /* SocialNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64AF681F252B4C670095276D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64AF6821252B4C670095276D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 				64AF6836252C5FC80095276D /* LoginFormController.swift */,
 				64AF683E252CD8370095276D /* TabViewController.swift */,
 				64AF6842252CDC830095276D /* FriendsTableViewController.swift */,
+				6466D0892534B5DC0046FC55 /* FriendTableViewCell.swift */,
+				6466D08C253753F20046FC55 /* CommunityTableViewController.swift */,
+				6466D08F2537544D0046FC55 /* CommunityTableViewCell.swift */,
 			);
 			path = SocialNet;
 			sourceTree = "<group>";
@@ -146,8 +155,11 @@
 				64AF6837252C5FC80095276D /* LoginFormController.swift in Sources */,
 				64AF6820252B4C670095276D /* AppDelegate.swift in Sources */,
 				64AF683F252CD8370095276D /* TabViewController.swift in Sources */,
+				6466D08A2534B5DC0046FC55 /* FriendTableViewCell.swift in Sources */,
 				64AF6822252B4C670095276D /* SceneDelegate.swift in Sources */,
 				64AF6843252CDC830095276D /* FriendsTableViewController.swift in Sources */,
+				6466D08D253753F20046FC55 /* CommunityTableViewController.swift in Sources */,
+				6466D0902537544D0046FC55 /* CommunityTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

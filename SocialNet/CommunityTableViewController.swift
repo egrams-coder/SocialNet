@@ -1,27 +1,25 @@
 //
-//  FriendsTableViewController.swift
+//  CommunityTableViewController.swift
 //  SocialNet
 //
-//  Created by Роман Евтюхин on 06.10.2020.
+//  Created by Роман Евтюхин on 14.10.2020.
 //
 
 import UIKit
 
-class FriendsTableViewController: UITableViewController {
+class CommunityTableViewController: UITableViewController {
     
+    var communityList: [ListCommunity] = [ListCommunity(name: "Музыкальная группа", description: "Для ценителей настоящей музыки"), ListCommunity(name: "Стройка и ремонт", description: "Поможем построить Тяп- Ляп"), ListCommunity(name: "Автомобили и мотоциклы", description: "Прокачай свой тазик")]
     
-    var friendList: [ListFriend] = [
-        ListFriend(name: "Екатерина", age: 27),
-        ListFriend(name: "Роман", age: 32),
-        ListFriend(name: "Марина", age: 58),
-        ListFriend(name: "Михаил", age: 5),
-        ListFriend(name: "Егор", age: 1)
-        ]
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -33,25 +31,22 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friendList.count
+        return communityList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendTableViewCell
-        
-        cell.friendNameLabel.text = friendList[indexPath.row].name
-        cell.friendAgeLabel.text = "\(friendList[indexPath.row].age) лет"
-        //cell.friendAvatarImage.image = friendList[indexPath.row].avatar
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "communityCell", for: indexPath) as! CommunityTableViewCell
 
+        // Configure the cell...
+        cell.communityLabelName.text = communityList[indexPath.row].name
+        cell.communityLabelDescription.text = communityList[indexPath.row].description
         return cell
     }
     
-    struct ListFriend {
+    struct ListCommunity {
         var name: String
-        var age: Int
-        //var avatar: UIImage
+        var description: String
     }
 
     /*

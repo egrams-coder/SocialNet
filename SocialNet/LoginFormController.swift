@@ -15,12 +15,18 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         loginInput.delegate = self
         passwordInput.delegate = self
+        
         // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
@@ -89,25 +95,28 @@ class LoginFormController: UIViewController {
         }
     }
     
+    // Переход с вью авторизации на новую вью
     func presentSecondView () {
-        // Переход с вью авторизации на новую вью
+        
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabViewController") as! TabViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
         //self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // Сообщение об ошибке при авторизации
     func alertErrorLoginPassword () {
-        // Сообщение об ошибке при авторизации
+        
         let alert = UIAlertController(title: "Ошибка", message: "Неверно указан логин или пароль", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ввести еще раз", style: .cancel, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    
 }
+
+// при вводе логина переходит на ввод пароля
 extension LoginFormController: UITextFieldDelegate {
-    // при вводе логина переходит на ввод пароля
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == loginInput {
             passwordInput.becomeFirstResponder()
