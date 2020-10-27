@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  LoginFormController.swift
 //  SocialNet
 //
-//  Created by Роман Евтюхин on 05.10.2020.
+//  Created by Роман Евтюхин on 06.10.2020.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginFormController: UIViewController {
 
     @IBOutlet weak var loginInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
@@ -16,14 +16,20 @@ class ViewController: UIViewController {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        
+        
+        loginInput.delegate = self
+        passwordInput.delegate = self
+        
         // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +39,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Второе — когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        // скрываем тавигейшен бар на экране авторизации
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     
@@ -69,19 +77,53 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startButton(_ sender: Any) {
-        // Получаем текст логина
-        let login = loginInput.text!
-        // Получаем текст-пароль
-        let password = passwordInput.text!
-        
-        // Проверяем, верны ли они
-        if login == "a" && password == "1" {
-            print("успешная авторизация")
-        } else {
-            print("неуспешная авторизация")
-        }
-
+        chek()
     }
     
+    // Сверяем введенные данные
+    func chek() {
+        
+        let login = loginInput.text!
+        let password = passwordInput.text!
+        
+        if login == "a" && password == "1" {
+            print("успешная авторизация")
+            presentSecondView()
+        } else {
+            print("Неверно указан логин или пароль")
+            alertErrorLoginPassword()
+            
+        }
+    }
+    
+    // Переход с вью авторизации на новую вью
+    func presentSecondView () {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabViewController") as! TabViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+        //self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // Сообщение об ошибке при авторизации
+    func alertErrorLoginPassword () {
+        
+        let alert = UIAlertController(title: "Ошибка", message: "Неверно указан логин или пароль", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ввести еще раз", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
+// при вводе логина переходит на ввод пароля
+extension LoginFormController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginInput {
+            passwordInput.becomeFirstResponder()
+        } else {
+            chek()
+        }
+        return true
+    }
+}
