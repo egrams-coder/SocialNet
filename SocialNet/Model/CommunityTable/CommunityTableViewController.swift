@@ -1,27 +1,26 @@
 //
-//  FriendsTableViewController.swift
+//  CommunityTableViewController.swift
 //  SocialNet
 //
-//  Created by Роман Евтюхин on 06.10.2020.
+//  Created by Роман Евтюхин on 14.10.2020.
 //
 
 import UIKit
 
-class FriendsTableViewController: UITableViewController {
+class CommunityTableViewController: UITableViewController {
     
-    
-    var friendList: [ListFriend] = [
-        ListFriend(name: "Екатерина", age: 27),
-        ListFriend(name: "Роман", age: 32),
-        ListFriend(name: "Марина", age: 58),
-        ListFriend(name: "Михаил", age: 5),
-        ListFriend(name: "Егор", age: 1)
+    var communityList: [UniversalCellProtocol] = [
+        Group(avatar: "1.1", nameHeading: "Музыкальная группа", nameSubtitle: "Для ценителей настоящей музыки"),
+        Group(avatar: "1.3", nameHeading: "Стройка и ремонт", nameSubtitle: "Поможем построить Тяп- Ляп"),
+        Group(avatar: "1.2", nameHeading: "Автомобили и мотоциклы", nameSubtitle: "Прокачай свой тазик"),
         ]
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.register(UINib(nibName: "UniversalTableViewCell", bundle: nil), forCellReuseIdentifier: "universalCell")
+        
     }
 
     // MARK: - Table view data source
@@ -33,27 +32,19 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friendList.count
+        return communityList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendTableViewCell
-        
-        cell.friendNameLabel.text = friendList[indexPath.row].name
-        cell.friendAgeLabel.text = "\(friendList[indexPath.row].age) лет"
-        //cell.friendAvatarImage.image = friendList[indexPath.row].avatar
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "universalCell", for: indexPath) as! UniversalTableViewCell
 
+        cell.setup(item: communityList[indexPath.row])
+        
         return cell
     }
-    
-    struct ListFriend {
-        var name: String
-        var age: Int
-        //var avatar: UIImage
-    }
 
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

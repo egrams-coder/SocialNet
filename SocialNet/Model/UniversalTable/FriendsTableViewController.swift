@@ -1,25 +1,29 @@
 //
-//  CommunityTableViewController.swift
+//  FriendsTableViewController.swift
 //  SocialNet
 //
-//  Created by Роман Евтюхин on 14.10.2020.
+//  Created by Роман Евтюхин on 06.10.2020.
 //
 
 import UIKit
 
-class CommunityTableViewController: UITableViewController {
+class FriendsTableViewController: UITableViewController {
     
-    var communityList: [ListCommunity] = [ListCommunity(name: "Музыкальная группа", description: "Для ценителей настоящей музыки"), ListCommunity(name: "Стройка и ремонт", description: "Поможем построить Тяп- Ляп"), ListCommunity(name: "Автомобили и мотоциклы", description: "Прокачай свой тазик")]
     
-
+    var friendList: [UniversalCellProtocol] = [
+        Friends(avatar: "1", nameHeading: "Екатерина", nameSubtitle: "27 лет"),
+        Friends(avatar: "2", nameHeading: "Роман", nameSubtitle: "32 года"),
+        Friends(avatar: "3", nameHeading: "Марина", nameSubtitle: "58 лет"),
+        Friends(avatar: "4", nameHeading: "Михаил", nameSubtitle: "5 лет"),
+        Friends(avatar: "5", nameHeading: "Егор", nameSubtitle: "6 месяцев")
+        ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: "UniversalTableViewCell", bundle: nil), forCellReuseIdentifier: "universalCell")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -31,23 +35,21 @@ class CommunityTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return communityList.count
+        return friendList.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "communityCell", for: indexPath) as! CommunityTableViewCell
-
-        // Configure the cell...
-        cell.communityLabelName.text = communityList[indexPath.row].name
-        cell.communityLabelDescription.text = communityList[indexPath.row].description
+        let cell = tableView.dequeueReusableCell(withIdentifier: "universalCell", for: indexPath) as! UniversalTableViewCell
+        
+        cell.setup(item: friendList[indexPath.row])
+        
         return cell
     }
     
-    struct ListCommunity {
-        var name: String
-        var description: String
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "homePage", sender: nil)
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -75,7 +77,9 @@ class CommunityTableViewController: UITableViewController {
 
     }
     */
-
+    
+    
+     
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

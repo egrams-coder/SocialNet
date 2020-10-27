@@ -80,8 +80,9 @@ class LoginFormController: UIViewController {
         chek()
     }
     
+    // Сверяем введенные данные
     func chek() {
-        // Сверяем введенные данные
+        
         let login = loginInput.text!
         let password = passwordInput.text!
         
