@@ -111,7 +111,7 @@
         <scene sceneID="4sj-Xv-kcL">
             <objects>
                 <tableViewController storyboardIdentifier="FriendsTableViewController" id="hko-vE-0sX" customClass="FriendsTableViewController" customModule="SocialNet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wbf-7Q-qbA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wbf-7Q-qbA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -133,19 +133,20 @@
         <scene sceneID="pwZ-9j-IYZ">
             <objects>
                 <tableViewController storyboardIdentifier="CommunityTableViewController" id="rbf-fK-K2y" customClass="CommunityTableViewController" customModule="SocialNet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5if-Q4-tSA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5if-Q4-tSA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <connections>
                             <outlet property="dataSource" destination="rbf-fK-K2y" id="key-tM-dRP"/>
                             <outlet property="delegate" destination="rbf-fK-K2y" id="xxH-fM-yba"/>
+                            <outlet property="prefetchDataSource" destination="rbf-fK-K2y" id="MEd-9T-mca"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Сообщества" id="2Vq-9k-GNX">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="xDB-Q8-Bkz">
                             <connections>
-                                <segue destination="4VX-Bc-2zh" kind="show" id="afp-LR-iMv"/>
+                                <segue destination="4VX-Bc-2zh" kind="show" identifier="addGroup" id="afp-LR-iMv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -154,17 +155,18 @@
             </objects>
             <point key="canvasLocation" x="3700" y="765"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Search Table View Controller-->
         <scene sceneID="aN3-fk-Dr5">
             <objects>
-                <tableViewController id="4VX-Bc-2zh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GeN-as-Enr">
+                <tableViewController storyboardIdentifier="SearchGroup" id="4VX-Bc-2zh" customClass="SearchTableViewController" customModule="SocialNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GeN-as-Enr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <connections>
                             <outlet property="dataSource" destination="4VX-Bc-2zh" id="PTn-Y6-CmF"/>
                             <outlet property="delegate" destination="4VX-Bc-2zh" id="5SU-KT-DHL"/>
+                            <outlet property="prefetchDataSource" destination="4VX-Bc-2zh" id="ydI-tg-HeW"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="GeM-g0-ttM"/>
