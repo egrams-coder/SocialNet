@@ -9,32 +9,31 @@ import UIKit
 
 class SearchTableViewController: UITableViewController {
 
-    var item = GroupDataBase.instance.item.filter {(i) -> Bool in
-        return i.added == false
-    }
+    //var item = GroupDataBase.instance.item.filter { $0.added == false }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.title = "Поиск"
         
         tableView.register(UINib(nibName: "UniversalTableViewCell", bundle: nil), forCellReuseIdentifier: "universalCell")
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
 
+    }
+    
+    var item = GroupDataBase.instance.item.filter { $0.added == false }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let item = GroupDataBase.instance.item.filter {(i) -> Bool in
-            return i.added == false
-        }
         return item.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "universalCell", for: indexPath) as! UniversalTableViewCell
- 
-        cell.setup(item: item[indexPath.row])
         
+        cell.setupGroup(item: item[indexPath.row])
         return cell
     }
     
@@ -47,5 +46,4 @@ class SearchTableViewController: UITableViewController {
         // Переход на предыдущий экран
         self.navigationController?.popViewController(animated: true)
     }
-    
 }

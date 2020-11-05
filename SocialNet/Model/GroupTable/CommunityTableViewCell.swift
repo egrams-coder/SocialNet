@@ -9,9 +9,7 @@ import UIKit
 
 class CommunityTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var communityImage: UIImageView!
-    @IBOutlet weak var communityLabelName: UILabel!
-    @IBOutlet weak var communityLabelDescription: UILabel!
+
     
     
     
@@ -25,5 +23,6 @@ class CommunityTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }

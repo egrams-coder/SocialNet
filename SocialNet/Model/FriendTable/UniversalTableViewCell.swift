@@ -27,11 +27,18 @@ class UniversalTableViewCell: UITableViewCell {
         
     }
     
-    func setup(item: UniversalCellProtocol)  {
+    func setupFriend(item: Friends)  {
        // friendAvatarImage.image = UIImage(named: item.avatar)
-        avatarView.imageView.image = UIImage(named: item.avatar)
+        avatarView.imageView.image = UIImage(named: item.avatar.first!)
         nameLabel.text = item.nameHeading
         titleLabel.text = item.nameSubtitle
     }
+    func setupGroup(item: Group)  {
+       // friendAvatarImage.image = UIImage(named: item.avatar)
+        avatarView.imageView.image = UIImage(named: item.avatar.first!)
+        nameLabel.text = item.nameHeading
+        titleLabel.text = item.nameSubtitle
+    }
+    
     
 }

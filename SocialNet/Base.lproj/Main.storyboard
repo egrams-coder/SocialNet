@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R3l-mf-RA1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aSq-zb-iPX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -107,6 +108,26 @@
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="76.339285714285708"/>
         </scene>
+        <!--Новости-->
+        <scene sceneID="guL-e5-Msw">
+            <objects>
+                <tableViewController id="wb3-aa-3d4" customClass="NewsTableViewController" customModule="SocialNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FYs-GY-twC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="wb3-aa-3d4" id="vWe-4K-pb2"/>
+                            <outlet property="delegate" destination="wb3-aa-3d4" id="Keu-PY-5bE"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Новости" image="newspaper.fill" catalog="system" id="PxQ-0b-7GL"/>
+                    <navigationItem key="navigationItem" id="4n6-Ml-c7V"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAY-Fk-6LE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3542" y="-583"/>
+        </scene>
         <!--Друзья-->
         <scene sceneID="4sj-Xv-kcL">
             <objects>
@@ -115,6 +136,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="bGi-sG-tdf">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <connections>
                             <outlet property="dataSource" destination="hko-vE-0sX" id="5h4-wJ-ri6"/>
                             <outlet property="delegate" destination="hko-vE-0sX" id="5qB-rQ-1wm"/>
@@ -122,12 +148,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Друзья" id="3N5-O8-W3g"/>
                     <connections>
-                        <segue destination="p29-Xb-XWm" kind="show" identifier="homePage" id="ecF-hN-0Xf"/>
+                        <outlet property="searchBar" destination="bGi-sG-tdf" id="TTS-uc-iY9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6d-yA-PNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700.0000000000005" y="76.339285714285708"/>
+            <point key="canvasLocation" x="3543" y="76"/>
         </scene>
         <!--Сообщества-->
         <scene sceneID="pwZ-9j-IYZ">
@@ -153,7 +179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rga-Ro-Mi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="765"/>
+            <point key="canvasLocation" x="3542" y="765"/>
         </scene>
         <!--Search Table View Controller-->
         <scene sceneID="aN3-fk-Dr5">
@@ -173,7 +199,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJx-BH-Kqw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4545" y="765"/>
+            <point key="canvasLocation" x="4288" y="765"/>
         </scene>
         <!--Friends Collection View Controller-->
         <scene sceneID="RWF-7h-gA3">
@@ -183,12 +209,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="37l-ZB-3nb">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <collectionViewLayout key="collectionViewLayout" id="ooB-aI-Occ" customClass="CustomFriendLayout" customModule="SocialNet" customModuleProvider="target"/>
                         <cells/>
                         <connections>
                             <outlet property="dataSource" destination="p29-Xb-XWm" id="85u-UK-HAz"/>
@@ -199,7 +220,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hob-Ip-QOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4545" y="76"/>
+            <point key="canvasLocation" x="4290" y="76"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eRp-66-wGP">
@@ -233,6 +254,7 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.62760972479999999" blue="0.64315495469999995" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="wb3-aa-3d4" kind="relationship" relationship="viewControllers" id="7K0-0N-aYw"/>
                         <segue destination="1S7-zg-m8k" kind="relationship" relationship="viewControllers" id="njv-GK-X9h"/>
                         <segue destination="FOV-Jz-juV" kind="relationship" relationship="viewControllers" id="buu-iG-5IP"/>
                     </connections>
@@ -287,8 +309,30 @@
             </objects>
             <point key="canvasLocation" x="2790" y="766"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jBk-kt-nnC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bRH-Vr-rWA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dSU-b1-BYh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wb3-aa-3d4" kind="relationship" relationship="rootViewController" id="Dgc-Nk-oTO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s7k-cD-hSo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2790" y="-583"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7K0-0N-aYw"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <systemColor name="systemBackgroundColor">
