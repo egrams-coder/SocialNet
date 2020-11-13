@@ -7,13 +7,16 @@
 
 import UIKit
 
-class CommunityTableViewController: UITableViewController {
+class CommunityTableViewController: UITableViewController, UISearchBarDelegate {
 
-    var item: [Group] {
+    
+    var groupList: [Group] {
         get {
-            return GroupDataBase.instance.item.filter { $0.added == true }
+            return GroupDataBase.instance.itemGroup.filter { $0.added == true }
         }
     }
+    
+    var filteredSearch: [Group]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,33 +26,37 @@ class CommunityTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if item.count > 0 {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
+//        if groupList.count > 0 {
+//            self.tableView.reloadData()
+//        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return item.count
+        return groupList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "universalCell", for: indexPath) as! UniversalTableViewCell
         
-        cell.setupGroup(item: item[indexPath.row])
+        cell.setupGroup(item: groupList[indexPath.row])
         return cell
     }
     
     // Кнопки удаления по свайпу
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        GroupDataBase.instance.item[indexPath.row].added = false
-        
         if editingStyle == .delete {
-            if item.count > 0 && indexPath.row < item.count {
-                GroupDataBase.instance.change(group: item[indexPath.row])
+            print("delete")
+            if groupList.count > 0 && indexPath.row < groupList.count {
+                GroupDataBase.instance.itemGroup[indexPath.row].added = false
+                GroupDataBase.instance.change(group: groupList[indexPath.row])
+                
+                
                 tableView.deleteRows(at: [indexPath], with: .left)
             }
-        
+            
         }
     }
+    
 }

@@ -13,7 +13,13 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var socNetLabel: UILabel!
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var passLabel: UILabel!
+    @IBOutlet weak var viewLoad: UIView!
+    @IBOutlet weak var loadCenterView: UIView!
+    @IBOutlet weak var loadRightView: UIView!
+    @IBOutlet weak var loadLeftView: UIView!
     
     
     override func viewDidLoad() {
@@ -86,14 +92,55 @@ class LoginFormController: UIViewController {
         let login = loginInput.text!
         let password = passwordInput.text!
         
-        if login == "a" && password == "1" {
+        if login == "Admin" && password == "a" {
+            self.animatedLoad()
             print("успешная авторизация")
-            presentSecondView()
         } else {
             print("Неверно указан логин или пароль")
             alertErrorLoginPassword()
             
         }
+    }
+    
+    // Анимация при регистрации
+    func animatedLoad()  {
+        UIScrollView.animate(withDuration: 0.8, delay: 0, options: [], animations: {
+            self.loginInput.center.x -= 300
+            self.passwordInput.frame.origin.x += 300
+            self.startButton.frame.origin.y += 300
+            self.loginLabel.frame.origin.x -= 300
+            self.socNetLabel.frame.origin.y -= 300
+            self.passLabel.frame.origin.x += 300
+        }, completion: {_ in
+            self.viewLoad.isHidden = false
+            
+            UIView.animateKeyframes(withDuration: 0.8, delay: 0, options: [], animations: {
+                
+                UIView.modifyAnimations(withRepeatCount: 2, autoreverses: false, animations: {
+                    
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.16, animations: {
+                        self.loadLeftView.alpha = 1
+                    })
+                    UIView.addKeyframe(withRelativeStartTime: 0.15, relativeDuration: 0.16, animations: {
+                        self.loadCenterView.alpha = 1
+                    })
+                    UIView.addKeyframe(withRelativeStartTime: 0.45, relativeDuration: 0.16, animations: {
+                        self.loadRightView.alpha = 1
+                    })
+                    UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.16, animations: {
+                        self.loadLeftView.alpha = 0
+                    })
+                    UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.16, animations: {
+                        self.loadCenterView.alpha = 0
+                    })
+                    UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.16, animations: {
+                        self.loadRightView.alpha = 0
+                    })
+                })
+            }, completion: {_ in
+                self.presentSecondView()
+            })
+        })
     }
     
     // Переход с вью авторизации на новую вью
@@ -127,3 +174,5 @@ extension LoginFormController: UITextFieldDelegate {
         return true
     }
 }
+
+

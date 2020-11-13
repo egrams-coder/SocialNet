@@ -15,7 +15,6 @@ class UniversalTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -40,5 +39,20 @@ class UniversalTableViewCell: UITableViewCell {
         titleLabel.text = item.nameSubtitle
     }
     
+    @IBAction func buttonAvatar(_ sender: Any) {
+        animateButtonAvatar()
+    }
     
+    // Анимация аватарок
+    func animateButtonAvatar() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 200
+        animation.mass = 1.5
+        animation.duration = 2
+        animation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.avatarView.layer.add(animation, forKey: nil)
+    }
 }

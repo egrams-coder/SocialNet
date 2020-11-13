@@ -19,15 +19,15 @@ class GroupDataBase {
     static let instance = GroupDataBase()
     private init() {}
     
-    var item: [Group] = [
+    var itemGroup: [Group] = [
         Group(avatar: ["1.1"], nameHeading: "Музыкальная группа", nameSubtitle: "Для ценителей настоящей музыки", added: false),
         Group(avatar: ["1.3"], nameHeading: "Стройка и ремонт", nameSubtitle: "Поможем построить Тяп- Ляп", added: false),
         Group(avatar: ["1.2"], nameHeading: "Автомобили и мотоциклы", nameSubtitle: "Прокачай свой тазик", added: true)
         ]
     func change(group: Group) {
-        for i in 0..<item.count {
-            if item[i].nameHeading == group.nameHeading  {
-                item[i] = group
+        for i in 0..<itemGroup.count {
+            if itemGroup[i].nameHeading == group.nameHeading  {
+                itemGroup[i] = group
             } 
         }
     }
