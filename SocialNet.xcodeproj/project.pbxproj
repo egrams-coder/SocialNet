@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		64287B5625473BCD008F13DF /* UniversalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64287B5425473BCC008F13DF /* UniversalCollectionViewCell.swift */; };
 		64287B5725473BCD008F13DF /* UniversalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64287B5525473BCC008F13DF /* UniversalCollectionViewCell.xib */; };
+		64591991256560E300AD7D03 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64591990256560E200AD7D03 /* SessionUser.swift */; };
 		6466D08A2534B5DC0046FC55 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466D0892534B5DC0046FC55 /* FriendTableViewCell.swift */; };
 		6466D08D253753F20046FC55 /* CommunityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466D08C253753F20046FC55 /* CommunityTableViewController.swift */; };
 		6466D0902537544D0046FC55 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466D08F2537544D0046FC55 /* CommunityTableViewCell.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		64287B5425473BCC008F13DF /* UniversalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalCollectionViewCell.swift; sourceTree = "<group>"; };
 		64287B5525473BCC008F13DF /* UniversalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UniversalCollectionViewCell.xib; sourceTree = "<group>"; };
+		64591990256560E200AD7D03 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		6466D0892534B5DC0046FC55 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		6466D08C253753F20046FC55 /* CommunityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewController.swift; sourceTree = "<group>"; };
 		6466D08F2537544D0046FC55 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = FriendCollection;
 			sourceTree = "<group>";
 		};
+		6459198F256560C300AD7D03 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				64591990256560E200AD7D03 /* SessionUser.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		645A08902541D140000FA610 /* StandartFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 		6466D0C12538932A0046FC55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6459198F256560C300AD7D03 /* Session */,
 				64C3DE502552F88D0013DB4C /* CustomFile */,
 				64D79C922541D62500C726E5 /* FriendTable */,
 				64287B5325473B4F008F13DF /* FriendCollection */,
@@ -271,6 +282,7 @@
 				6466D09625386B300046FC55 /* FriendsCollectionViewController.swift in Sources */,
 				64AF6843252CDC830095276D /* FriendsTableViewController.swift in Sources */,
 				6466D08D253753F20046FC55 /* CommunityTableViewController.swift in Sources */,
+				64591991256560E300AD7D03 /* SessionUser.swift in Sources */,
 				6466D0902537544D0046FC55 /* CommunityTableViewCell.swift in Sources */,
 				64C3DE4E255059C40013DB4C /* CustomFriendLayout.swift in Sources */,
 				64F4589C25486A4400A913DC /* SearchTableViewController.swift in Sources */,
